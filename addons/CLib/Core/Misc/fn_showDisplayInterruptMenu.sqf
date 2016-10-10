@@ -1,19 +1,19 @@
 #include "macros.hpp"
-/**
- * Comunity Lib - CLib
- * 
- * Author: Raven
- * 
- * Description:
- * This will open the pause menu that is normally triggered by Esc
- * 
- * Parameter(s):
- * 0: Whether to enable the Respawn button (if the config doesn't prohibit it) <Boolean> (Optional. default: false)
- * 1: Force respawn button even if config prohibits it <Boolean> (Optional. default: false)
- * 
- * Return Value:
- * None <Any>
- * 
+/*
+  Comunity Lib - CLib
+  
+  Author: Raven
+  
+  Description:
+  This will open the pause menu that is normally triggered by Esc
+  
+  Parameter(s):
+  0: Whether to enable the Respawn button (if the config doesn't prohibit it) <Boolean> (Optional. default: false)
+  1: Force respawn button even if config prohibits it <Boolean> (Optional. default: false)
+  
+  Return Value:
+  None
+  
  */
 
 params [
@@ -27,6 +27,7 @@ private _display = findDisplay 49;
 
 for "_index" from 100 to 2000 do {
     (_display displayCtrl _index) ctrlEnable false;
+    (_display displayCtrl _index) ctrlSetTooltip "";
 };
 
 // enable abort-button
