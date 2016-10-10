@@ -30,7 +30,7 @@ for "_index" from 100 to 2000 do {
 };
 
 // enable abort-button
-private _ctrl = _display displayctrl 103;
+private _ctrl = _display displayctrl 104;
 _ctrl ctrlSetEventHandler ["buttonClick", DFUNC(onButtonClickEndStr)];
 _ctrl ctrlEnable true;
 _ctrl ctrlSetText "ABORT";
