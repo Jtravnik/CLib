@@ -44,6 +44,7 @@ class CfgCLibModules {
                 FNC(serverInit);
                 FNC(dumpPerformanceInformation);
                 APIFNC(setVariablePublic);
+                APIFNC(showDisplayInterruptMenu);
             };
 
             MODULE(MissionModuleLoader) {
