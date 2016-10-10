@@ -38,27 +38,8 @@ if (_state) then {
         params ["", "_key"];
 
         if (_key == 1) then {
-            createDialog (["RscDisplayInterrupt", "RscDisplayMPInterrupt"] select isMultiplayer);
-
-            private _dlg = findDisplay 49;
-
-            for "_index" from 100 to 2000 do {
-                (_dlg displayCtrl _index) ctrlEnable false;
-            };
-
-
-
-            private _ctrl = _dlg displayctrl 103;
-            _ctrl ctrlSetEventHandler ["buttonClick", DFUNC(onButtonClickEndStr)];
-            _ctrl ctrlEnable true;
-            _ctrl ctrlSetText "ABORT";
-            _ctrl ctrlSetTooltip "Abort.";
-
-            _ctrl = _dlg displayctrl ([104, 1010] select isMultiplayer);
-            _ctrl ctrlSetEventHandler ["buttonClick", DFUNC(onButtonClickRespawnStr)];
-            _ctrl ctrlEnable (call {private _config = missionConfigFile >> "respawnButton"; !isNumber _config || {getNumber _config == 1}});
-            _ctrl ctrlSetText "RESPAWN";
-            _ctrl ctrlSetTooltip "Respawn.";
+            // open pause menu
+            [] call CFUNC(showDisplayInterruptMenu);
         };
 
         if (_key in actionKeys "CuratorInterface" && {getAssignedCuratorLogic player in allCurators}) exitWith {
