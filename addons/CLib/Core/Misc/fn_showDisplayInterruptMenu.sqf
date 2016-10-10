@@ -16,10 +16,6 @@
  * 
  */
 
-disableSerialization;
-
-private ["_display", "_ctrl"];
-
 params [
     ["_allowRespawn", false, [false]],
     ["_force", false, [false]]
@@ -27,14 +23,14 @@ params [
 
 createDialog (["RscDisplayInterrupt", "RscDisplayMPInterrupt"] select isMultiplayer);
 
-_display = findDisplay 49;
+private _display = findDisplay 49;
 
 for "_index" from 100 to 2000 do {
     (_display displayCtrl _index) ctrlEnable false;
 };
 
 // enable abort-button
-_ctrl = _display displayctrl 103;
+private _ctrl = _display displayctrl 103;
 _ctrl ctrlSetEventHandler ["buttonClick", DFUNC(onButtonClickEndStr)];
 _ctrl ctrlEnable true;
 _ctrl ctrlSetText "ABORT";
