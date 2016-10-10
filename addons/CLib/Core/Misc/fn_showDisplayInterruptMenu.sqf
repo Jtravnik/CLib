@@ -16,6 +16,8 @@
  * 
  */
 
+disableSerialization;
+
 private ["_display", "_ctrl"];
 
 params [
